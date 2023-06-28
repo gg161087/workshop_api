@@ -6,13 +6,15 @@ import { errors } from './utils/errorsHandler.js';
 
 const app = express();
 
+app.set('view engine', 'ejs');
+app.set('views', 'views');
+app.set('port', PORT);
+
 app.use(express.static('public'));
 app.use(express.urlencoded());
 app.use(express.json());
 
-app.set('port', PORT);
-app.use('/api', router);
-
-app.use(errors.notFound)
+app.use('/', router);
+app.use(errors.notFound);
 
 app.listen(PORT, () => {console.log(`Servidor corriendo http://${HOST}:${PORT}`)});

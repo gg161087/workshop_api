@@ -1,24 +1,18 @@
 import { Router } from 'express';
-import { obtenerProductos, obtenerProductoPorId, actualizarProducto, editarProducto, agregarProducto, borrarProducto } from '../controllers/productos.controller.js';
+import { obtenerProductos, obtenerProductoById, actualizarProducto, editarProducto, agregarProducto, eliminarProducto } from '../controllers/productos.controller.js';
 
-const router = Router()
+const router = Router();
 
-// ver todos los productos "/productos"
-router.get("/", obtenerProductos)
+router.get('/', obtenerProductos);
 
-// Obtener un producto por su ID (ej vista de producto detallado)
-router.get("/:id", obtenerProductoPorId)
+router.get('/:id', obtenerProductoById);
 
-// Editar un producto (ej formulario prellenado para editar producto)
-router.get("/editar/:id", editarProducto)
+router.get('/editar/:id', editarProducto);
 
-// Editar un producto enviando por formulario
-router.put("/:id", actualizarProducto)
+router.post('/', agregarProducto);
 
-// Borrar un producto
-router.delete("/:id", borrarProducto)
+router.put('/:id', actualizarProducto);
 
-// Agregar un producto
-router.post("/", agregarProducto)
+router.delete('/:id', eliminarProducto);
 
-export default router 
+export default router; 

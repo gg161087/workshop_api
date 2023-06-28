@@ -1,33 +1,37 @@
 import productosModels from '../models/productos.models.js';
 
 const obtenerProductos = async (filtros) => {    
-    const productos = await productosModels.obtenerProductos(filtros)
-    return productos
+    const productos = await productosModels.obtenerProductos(filtros);
+    return productos;
 }
 
-const obtenerProductoPorId = () => { //  "/productos/:id"
-    
+const obtenerProductoById = async (id) => {
+    const producto = await productosModels.obtenerProductoById(id);
+    return producto;
+}
+
+const agregarProducto = async (datosProducto) => {
+    const producto = await productosModels.agregarProducto(datosProducto);
+    return producto;
 }
 
 const editarProducto = () => {
    
 }
 
-const actualizarProducto = () => {
-    
+const actualizarProducto = async (body, id) => {    
+    const producto = await productosModels.actualizarProducto(body, id);       
+    return producto;
 }
 
-const borrarProducto = () => {
-    
-}
-
-const agregarProducto = () => {
-    
+const borrarProducto = async (id) => {
+    const producto = await productosModels.obtenerProductoById(id);
+    return producto;
 }
 
 export default {
     obtenerProductos,
-    obtenerProductoPorId,
+    obtenerProductoById,
     editarProducto,
     actualizarProducto,
     borrarProducto,
