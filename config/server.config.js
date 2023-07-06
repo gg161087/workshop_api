@@ -6,6 +6,7 @@ const DB_HOST = process.env.DB_HOST || 'localhost';
 const DATABASE = process.env.DATABASE || 'comision27077';
 const USER = process.env.USER || 'root';
 const PASSWORD = process.env.PASSWORD || '';
+const JWT_SECRET = process.env.JWT_SECRET || 'secret';
 
 export {
     PORT,
